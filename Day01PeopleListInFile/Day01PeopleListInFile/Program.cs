@@ -137,7 +137,7 @@ namespace Day01PeopleListInFile
                     Console.WriteLine(p);
                 }
             }
-            // using LINQ
+            // using LINQ (Can use either solution)
             Console.WriteLine("Peple at that age or younger (using LINQ):");
             var youngerList = People.Where(p => (p.Age <= maxAge));
             foreach (Person p in youngerList)
@@ -150,7 +150,9 @@ namespace Day01PeopleListInFile
         {
             Console.Write("Enter partial person name: ");
             string searchStr = Console.ReadLine();
+            // Lambda returns true/false --> if true, Lambda goes on final list (ToList) --> gets a list as result of search
             var matchesList = People.Where(p => p.Name.Contains(searchStr)).ToList(); // LINQ
+            // var is same as List<Person> in this case --> Var is type which is discovered by the compiler, so you dont have to type it.
             if (matchesList.Count() > 0)
             {
                 Console.WriteLine("Matches found:");

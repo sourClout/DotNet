@@ -31,6 +31,7 @@ namespace Day02TempConv_TASK2
             try
             {
                 double tempF = double.Parse(TbxValue.Text); // ex FormatException, OverflowException
+    
                 double tempC = (tempF - 32) * 0.56;
                 string value = tempC.ToString();
                 TbxConvert.Text = $"{value}";

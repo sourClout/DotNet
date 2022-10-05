@@ -1,0 +1,2 @@
+alex; 36 and up; Cats,Dogs; Asia; 24.8178694158076
+jerry ; 18 to 35; Other; Australia; 27

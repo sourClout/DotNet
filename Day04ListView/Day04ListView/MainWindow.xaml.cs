@@ -24,5 +24,19 @@ namespace Day04ListView
         {
             InitializeComponent();
         }
+
+        private void BtnAddPerson_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: add validation
+            string name = TbxName.Text;
+            int.TryParse(TbxAge.Text, out int age);
+            // Listview is a frontend component of WPF BUT has its own data layer --> a collection of items showing inside listview
+            // Items is a collection 
+            LvPeople.Items.Add($"{name} is {age} y/o");
+            // clear the inputs
+            TbxName.Text = "";
+            TbxAge.Text = "";
+
+        }
     }
 }

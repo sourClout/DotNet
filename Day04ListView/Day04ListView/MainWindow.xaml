@@ -11,8 +11,8 @@
         <TextBox Name="TbxName" HorizontalAlignment="Left" Margin="76,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84"/>
         <Label Content="Age: " HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="44"/>
         <TextBox Name="TbxAge" HorizontalAlignment="Left" Margin="227,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47"/>
-        <Button Content="Add Person" HorizontalAlignment="Left" Margin="296,14,0,0" VerticalAlignment="Top" Width="84"/>
-        <ListView Name="lvPeople" HorizontalAlignment="Left" Height="148" Margin="10,52,0,0" VerticalAlignment="Top" Width="354"/>
+        <Button Name="BtnAddPerson" Content="Add Person" HorizontalAlignment="Left" Margin="296,14,0,0" VerticalAlignment="Top" Width="84" Click="BtnAddPerson_Click"/>
+        <ListView Name="LvPeople" HorizontalAlignment="Left" Height="148" Margin="10,52,0,0" VerticalAlignment="Top" Width="354"/>
         
 
 

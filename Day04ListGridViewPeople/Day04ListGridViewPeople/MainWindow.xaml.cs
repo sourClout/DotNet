@@ -31,11 +31,12 @@ namespace Day04ListGridViewPeople
 
         private void BtnAddPerson_Click(object sender, RoutedEventArgs e)
         {
-            //
+            if (!ArePersonInputsValid()) return;
             string name = Tbx_Name.Text;
             int.TryParse(Tbx_Age.Text, out int age);
             peopleList.Add(new Person(name,age));
             LvPeople.Items.Refresh(); // tell ListView data has changed --> when performing operations on "itemSource", you just use "Items"
+            ResetFields();
 
         }
 
@@ -46,6 +47,16 @@ namespace Day04ListGridViewPeople
 
         private void BtnUpdatePerson_Click(object sender, RoutedEventArgs e)
         {
+            Person currSelPer = LvPeople.SelectedItem as Person;
+            if (currSelPer == null) return;
+            if (!ArePersonInputsValid()) return;
+            string name = Tbx_Name.Text;
+            int.TryParse(Tbx_Age.Text, out int age);
+            currSelPer.Name = name;
+            currSelPer.Age = age;
+            LvPeople.Items.Refresh();
+            ResetFields();
+
 
         }
 
@@ -64,6 +75,28 @@ namespace Day04ListGridViewPeople
                 return false;
             }
             return true;
+        }
+
+        private void ResetFields()
+        {
+            Tbx_Name.Text = "";
+            Tbx_Age.Text = "";
+        }
+
+
+
+        private void LvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Person currSelPer = LvPeople.SelectedItem as Person;
+            if (currSelPer == null)
+            {
+                ResetFields();
+            }
+            else
+            {
+                Tbx_Name.Text = currSelPer.Name;
+                Tbx_Age.Text = currSelPer.Age.ToString();
+            }
         }
     }
 }

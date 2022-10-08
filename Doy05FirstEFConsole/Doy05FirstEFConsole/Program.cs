@@ -20,7 +20,7 @@ namespace Doy05FirstEFConsole
     // View --> sevrer explorer (can use to connect to SQL server. will do next week for project. TODAY just connect to local database) --> Data Connections (right click)
     // --> Add connection -->  Microsoft SQL Server Database File --> Continue --> Browse for File (in home directory) --> find table and show table data 
     // --> if run program again will see another record added
-    // IF YOU EVER modify the fields of your class, add a new number to end of databse file name on SocietyDb line 16 (creates a new databse file each time) --> this avoids migrations
+    // IF YOU EVER modify the fields of your class, add a new number to end of databse file name on app.config line catalogue="" (creates a new databse file each time) --> this avoids migrations
     internal class Program
     {
         static void Main(string[] args)

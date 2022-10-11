@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace TodoEnum
 {
@@ -12,6 +9,7 @@ namespace TodoEnum
         [Key]
         public int Id { get; set; }
 
+        // [RegularExpression(@"([A-Za-z0-9\s./,-;+)(*!])+")]
         [Required]
         [StringLength(100)]
         public string Task { get; set; }
@@ -27,7 +25,7 @@ namespace TodoEnum
         public StatusEnum Status { get; set; }
         public enum StatusEnum { Pending, Done, Delegated }
 
-      
+
         /*
         public Todos(int id, string task, int difficulty, DateTime dueDate, StatusEnum status)
         {
@@ -47,11 +45,20 @@ namespace TodoEnum
 
         public static bool IsTaskValid(string task, out string error)
         {
+            /*
             if (task.Length < 1 || task.Length > 100)
             {
                 error = "Task must be 1-100 charcarters long";
                 return false;
             }
+            */
+           
+            if (!Regex.IsMatch(task, @"([A - Za - z0 - 9\s./, -; +)(*!]{1,100})"))
+            {
+                error = "Task must be 1-100 characters long and only contain valid characters"; 
+                return false;
+            }
+            
             // If you declare a variable as output variable it MUST be assigned on all paths. So have to put it as something (null).
             // because there is no error here and it still needs to be assinged somehting it gets NULL
             error = null;
